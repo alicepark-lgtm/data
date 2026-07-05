@@ -2,28 +2,25 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-st.title("🎬 애니메이션 산점도")
+st.title("🎮 캐릭터 성장")
 
-# 데이터 만들기
 df = pd.DataFrame({
-    "학년":[1,1,1,2,2,2,3,3,3],
-    "반":["1반","2반","3반"]*3,
-    "평균키":[160,162,161,166,167,165,170,171,169],
-    "평균몸무게":[52,54,53,57,58,56,61,63,60]
+    "레벨":[1,1,1,2,2,2,3,3,3,4,4,4],
+    "캐릭터":["전사","궁수","마법사"]*4,
+    "공격력":[20,18,25,35,30,40,50,45,60,70,62,80],
+    "체력":[100,80,60,130,95,75,170,110,90,220,130,110]
 })
 
-# 애니메이션 산점도
 fig = px.scatter(
     df,
-    x="평균키",
-    y="평균몸무게",
-    animation_frame="학년",     # 시간 역할
-    animation_group="반",       # 같은 반이 계속 움직임
-    text="반",
-    range_x=[155,175],
-    range_y=[45,70],
-    size_max=20,
-    title="학년이 올라갈수록 평균 키와 몸무게 변화"
+    x="공격력",
+    y="체력",
+    animation_frame="레벨",
+    animation_group="캐릭터",
+    text="캐릭터",
+    size="체력",
+    range_x=[0,90],
+    range_y=[0,240]
 )
 
 fig.update_traces(textposition="top center")
