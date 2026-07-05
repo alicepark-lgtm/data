@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.header('st.selectbox')
+st.header('드롭다운')
 
 option = st.selectbox(
      '가장 좋아하는 색상은 무엇인가요?',
